@@ -1,11 +1,27 @@
 import React from "react";
+import HeaderBox from "../../components/HeaderBox";
+import TotalBalanceBox from "../../components/TotalBalanceBox";
 
 const Home: React.FC = () => {
+  const loggedIn = { firstName: "Christian" };
   return (
-    <div>
-      <h1>Welcome to JSM Banking</h1>
-      <p>This is the root Home of your application.</p>
-    </div>
+    <section className="home">
+      <div className="home-content">
+        <header className="home-header">
+          <HeaderBox
+            type="greeting"
+            title="Welcome"
+            user={loggedIn?.firstName || "Guest"}
+            subtext="Access and manage your account and transactions efficiently"
+          />
+          <TotalBalanceBox
+            accounts={[]}
+            totalBanks={1}
+            totalCurrentBalance={1250.35}
+          />
+        </header>
+      </div>
+    </section>
   );
 };
 
